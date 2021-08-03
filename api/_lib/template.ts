@@ -1,9 +1,8 @@
 import { readFileSync } from 'fs';
 import marked from 'marked';
+import twemoji from 'twemoji';
 import sanitizeHtml from './sanitizer';
 import { ParsedRequest } from './types';
-
-const twemoji = require('twemoji');
 
 const twOptions = { folder: 'svg', ext: '.svg' };
 const emojify = (text: string) => twemoji.parse(text, twOptions);
