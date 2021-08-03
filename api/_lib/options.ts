@@ -7,7 +7,7 @@ switch (process.platform) {
       'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe;';
     break;
   case 'linux':
-    execPath = '/usr/bin/google-chrome';
+    execPath = '/usr/bin/chromium';
     break;
   default:
     execPath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
