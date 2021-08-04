@@ -17,16 +17,7 @@ const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString(
   'base64',
 );
 
-function getCss(theme: string, fontSize: string) {
-  let background = 'white';
-  let foreground = 'black';
-  let radial = 'lightgray';
-
-  if (theme === 'dark') {
-    background = 'black';
-    foreground = 'white';
-    radial = 'dimgray';
-  }
+function getCss(fontSize: string) {
   return `
     @font-face {
         font-family: 'Inter';
@@ -47,12 +38,14 @@ function getCss(theme: string, fontSize: string) {
         font-style: normal;
         font-weight: normal;
         src: url(data:font/woff2;charset=utf-8;base64,${mono})  format("woff2");
-      }
+    }
 
     body {
-        background: ${background};
-        background-image: radial-gradient(circle at 25px 25px, ${radial} 2%, transparent 0%), radial-gradient(circle at 75px 75px, ${radial} 2%, transparent 0%);
-        background-size: 100px 100px;
+        background-color: white;
+        background-image: url("https://github.com/hapakaien/assets/raw/main/husen.id/Open%20Graph/light-silhouette-icon-optimized.svg");
+        background-size: 500px 500px;
+        background-repeat: no-repeat;
+        background-position: center;
         height: 100vh;
         display: flex;
         text-align: center;
@@ -99,12 +92,12 @@ function getCss(theme: string, fontSize: string) {
         margin: 0 .05em 0 .1em;
         vertical-align: -0.1em;
     }
-    
+
     .heading {
         font-family: 'Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
-        color: ${foreground};
+        color: black;
         line-height: 1.8;
     }`;
 }
@@ -124,24 +117,21 @@ function getPlusSign(i: number) {
 }
 
 export default function getHtml(parsedReq: ParsedRequest) {
-  const { text, theme, md, fontSize, images, widths, heights } = parsedReq;
+  const { text, md, fontSize, images } = parsedReq;
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
     <title>Generated Image</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        ${getCss(theme, fontSize)}
+        ${getCss(fontSize)}
     </style>
     <body>
         <div>
             <div class="spacer">
             <div class="logo-wrapper">
                 ${images
-                  .map(
-                    (img, i) =>
-                      getPlusSign(i) + getImage(img, widths[i], heights[i]),
-                  )
+                  .map((img, i) => getPlusSign(i) + getImage(img))
                   .join('')}
             </div>
             <div class="spacer">

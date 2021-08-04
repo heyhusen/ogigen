@@ -1,6 +1,6 @@
 import { IncomingMessage } from 'http';
 import { parse } from 'url';
-import { ParsedRequest, Theme } from './types';
+import { ParsedRequest } from './types';
 
 function getArray(stringOrArray: string[] | string | undefined): string[] {
   if (typeof stringOrArray === 'undefined') {
@@ -12,22 +12,14 @@ function getArray(stringOrArray: string[] | string | undefined): string[] {
   return [stringOrArray];
 }
 
-function getDefaultImages(images: string[], theme: Theme): string[] {
+function getDefaultImages(images: string[]): string[] {
   const defaultImage =
-    theme === 'light'
-      ? 'https://assets.vercel.com/image/upload/front/assets/design/vercel-triangle-black.svg'
-      : 'https://assets.vercel.com/image/upload/front/assets/design/vercel-triangle-white.svg';
+    'https://github.com/hapakaien/assets/raw/main/husen.id/Icon/base-optimized.svg';
 
   const img = images;
 
   if (!img || !img[0]) {
     return [defaultImage];
-  }
-  if (
-    !img[0].startsWith('https://assets.vercel.com/') &&
-    !img[0].startsWith('https://assets.zeit.co/')
-  ) {
-    img[0] = defaultImage;
   }
   return img;
 }
@@ -35,13 +27,10 @@ function getDefaultImages(images: string[], theme: Theme): string[] {
 export default function parseRequest(req: IncomingMessage) {
   console.log(`HTTP ${req.url}`);
   const { pathname, query } = parse(req.url || '/', true);
-  const { fontSize, images, widths, heights, theme, md } = query || {};
+  const { fontSize, images, md } = query || {};
 
   if (Array.isArray(fontSize)) {
     throw new Error('Expected a single fontSize');
-  }
-  if (Array.isArray(theme)) {
-    throw new Error('Expected a single theme');
   }
 
   const arr = (pathname || '/').slice(1).split('.');
@@ -59,16 +48,10 @@ export default function parseRequest(req: IncomingMessage) {
   const parsedRequest: ParsedRequest = {
     fileType: extension === 'jpeg' ? extension : 'png',
     text: decodeURIComponent(text),
-    theme: theme === 'dark' ? 'dark' : 'light',
     md: md === '1' || md === 'true',
     fontSize: fontSize || '96px',
     images: getArray(images),
-    widths: getArray(widths),
-    heights: getArray(heights),
   };
-  parsedRequest.images = getDefaultImages(
-    parsedRequest.images,
-    parsedRequest.theme,
-  );
+  parsedRequest.images = getDefaultImages(parsedRequest.images);
   return parsedRequest;
 }
