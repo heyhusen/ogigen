@@ -103,6 +103,7 @@ function getCss(fontSize: string) {
         height: 100vh;
         padding: 10px;
         font-family: 'Barlow', sans-serif;
+        line-height: 1.1;
     }
 
     main {
@@ -138,7 +139,7 @@ function getCss(fontSize: string) {
     .heading {
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
-        color: black;
+        color: #1B435D;
         margin-top: 20px;
     }`;
 }
