@@ -146,9 +146,6 @@ interface AppState extends ParsedRequest {
   loading: boolean;
   showToast: boolean;
   messageToast: string;
-  selectedImageIndex: number;
-  widths: string[];
-  heights: string[];
   overrideUrl: URL | null;
 }
 
@@ -169,16 +166,13 @@ const App = (_: any, state: AppState, setState: SetState) => {
   };
   const {
     fileType = 'png',
-    fontSize = '100px',
+    fontSize = '75px',
     md = true,
     text = '**Hello** World',
-    images = [imageOptions[0].value],
-    widths = [],
-    heights = [],
+    image = imageOptions[0].value,
     showToast = false,
     messageToast = '',
     loading = true,
-    selectedImageIndex = 0,
     overrideUrl = null,
   } = state;
   const mdValue = md ? '1' : '0';
@@ -186,9 +180,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
   url.pathname = `${encodeURIComponent(text)}.${fileType}`;
   url.searchParams.append('md', mdValue);
   url.searchParams.append('fontSize', fontSize);
-  images.forEach((image) => url.searchParams.append('images', image));
-  widths.forEach((width) => url.searchParams.append('widths', width));
-  heights.forEach((height) => url.searchParams.append('heights', height));
+  url.searchParams.append('image', image);
 
   return H(
     'div',
@@ -238,15 +230,9 @@ const App = (_: any, state: AppState, setState: SetState) => {
             'div',
             H(Dropdown, {
               options: imageOptions,
-              value: imageOptions[selectedImageIndex].value,
+              value: image,
               onchange: (val: string) => {
-                const clone = [...images];
-                clone[0] = val;
-                const selected = imageOptions.map((o) => o.value).indexOf(val);
-                setLoadingState({
-                  images: clone,
-                  selectedImageIndex: selected,
-                });
+                setLoadingState({ image: val });
               },
             }),
           ),

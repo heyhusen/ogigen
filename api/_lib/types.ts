@@ -5,5 +5,5 @@ export interface ParsedRequest {
   text: string;
   md: boolean;
   fontSize: string;
-  images: string[];
+  image: string;
 }

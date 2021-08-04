@@ -40,6 +40,10 @@ function getCss(fontSize: string) {
         src: url(data:font/woff2;charset=utf-8;base64,${mono})  format("woff2");
     }
 
+    html, body, main {
+      margin: 0;
+    }
+
     body {
         background-color: white;
         background-image: url("https://github.com/hapakaien/assets/raw/main/husen.id/Open%20Graph/light-silhouette-icon-optimized.svg");
@@ -47,10 +51,15 @@ function getCss(fontSize: string) {
         background-repeat: no-repeat;
         background-position: center;
         height: 100vh;
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
+        padding: 10px;
+    }
+
+    img {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      wdth: 100px;
+      height: 100px;
     }
 
     code {
@@ -62,28 +71,6 @@ function getCss(fontSize: string) {
 
     code:before, code:after {
         content: '\`';
-    }
-
-    .logo-wrapper {
-        display: flex;
-        align-items: center;
-        align-content: center;
-        justify-content: center;
-        justify-items: center;
-    }
-
-    .logo {
-        margin: 0 75px;
-    }
-
-    .plus {
-        color: #BBB;
-        font-family: Times New Roman, Verdana;
-        font-size: 100px;
-    }
-
-    .spacer {
-        margin: 150px;
     }
 
     .emoji {
@@ -98,26 +85,20 @@ function getCss(fontSize: string) {
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: black;
-        line-height: 1.8;
     }`;
 }
 
-function getImage(src: string, width = 'auto', height = '225') {
+function getImage(src: string) {
   return `<img
-        class="logo"
         alt="Generated Image"
         src="${sanitizeHtml(src)}"
-        width="${sanitizeHtml(width)}"
-        height="${sanitizeHtml(height)}"
+        width="100px"
+        height="100px"
     />`;
 }
 
-function getPlusSign(i: number) {
-  return i === 0 ? '' : '<div class="plus">+</div>';
-}
-
 export default function getHtml(parsedReq: ParsedRequest) {
-  const { text, md, fontSize, images } = parsedReq;
+  const { text, md, fontSize, image } = parsedReq;
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -127,19 +108,12 @@ export default function getHtml(parsedReq: ParsedRequest) {
         ${getCss(fontSize)}
     </style>
     <body>
-        <div>
-            <div class="spacer">
-            <div class="logo-wrapper">
-                ${images
-                  .map((img, i) => getPlusSign(i) + getImage(img))
-                  .join('')}
+        <main>
+            <div class="heading">
+              ${emojify(md ? marked(text) : sanitizeHtml(text))}
             </div>
-            <div class="spacer">
-            <div class="heading">${emojify(
-              md ? marked(text) : sanitizeHtml(text),
-            )}
-            </div>
-        </div>
+            ${getImage(image)}
+        </main>
     </body>
 </html>`;
 }
