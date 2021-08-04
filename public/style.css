@@ -17,6 +17,10 @@ a:hover {
     border-bottom: 1px solid #0076ff;
 }
 
+header {
+    padding: 20px 0;
+}
+
 footer {
     opacity: 0.5;
     font-size: 0.8em;
@@ -297,28 +301,10 @@ img {
     border-color: #ddd;
 }
 
-@media (max-width: 1000px) {
-    .field {
-        margin: 20px 10px;
-    }
-    .pull-left {
-        margin-left: 1.5em;
-    }
-}
-
-@media (max-width: 900px) {
-    .container {
-        padding: 4px;
-    }
-
-    .split {
-        flex-direction: column;
-    }
-
-    .field-label {
-        width: 60px;
-        font-size: 13px;
-    }
+.github-corner {
+    position: fixed;
+    top: 0%;
+    right: 0%;
 }
 
 .github-corner:hover .octo-arm {
@@ -337,6 +323,30 @@ img {
     40%,
     80% {
         transform: rotate(10deg);
+    }
+}
+
+@media (max-width: 1000px) {
+    .field {
+        margin: 20px 10px;
+    }
+    .pull-left {
+        margin-left: 1.5em;
+    }
+}
+
+@media (max-width: 900px) {
+    .container {
+        padding: 10px;
+    }
+
+    .split {
+        flex-direction: column;
+    }
+
+    .field-label {
+        width: 60px;
+        font-size: 13px;
     }
 }
 
