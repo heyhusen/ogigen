@@ -166,7 +166,7 @@ const App = (_: any, state: AppState, setState: SetState) => {
   };
   const {
     fileType = 'png',
-    fontSize = '75px',
+    fontSize = '100px',
     md = true,
     text = '**Hello** World',
     image = imageOptions[0].value,

@@ -7,36 +7,18 @@ import { ParsedRequest } from './types';
 const twOptions = { folder: 'svg', ext: '.svg' };
 const emojify = (text: string) => twemoji.parse(text, twOptions);
 
-const ralewayCyrillicExt1 = readFileSync(
-  `${__dirname}/../_fonts/raleway/v22/1Ptug8zYS_SKggPNyCAIT5lu.woff2`,
+const barlowVietnamese = readFileSync(
+  `${__dirname}/../_fonts/barlow/v5/7cHqv4kjgoGqM7E3_-gs6FospT4.woff2`,
 ).toString('base64');
-const ralewayCyrillic1 = readFileSync(
-  `${__dirname}/../_fonts/raleway/v22/1Ptug8zYS_SKggPNyCkIT5lu.woff2`,
+const barlowLatinExt = readFileSync(
+  `${__dirname}/../_fonts/barlow/v5/7cHqv4kjgoGqM7E3_-gs6VospT4.woff2`,
 ).toString('base64');
-const ralewayVietnamese1 = readFileSync(
-  `${__dirname}/../_fonts/raleway/v22/1Ptug8zYS_SKggPNyCIIT5lu.woff2`,
+const barlowLatin = readFileSync(
+  `${__dirname}/../_fonts/barlow/v5/7cHqv4kjgoGqM7E3_-gs51os.woff2`,
 ).toString('base64');
-const ralewayLatinExt1 = readFileSync(
-  `${__dirname}/../_fonts/raleway/v22/1Ptug8zYS_SKggPNyCMIT5lu.woff2`,
-).toString('base64');
-const ralewayLatin1 = readFileSync(
-  `${__dirname}/../_fonts/raleway/v22/1Ptug8zYS_SKggPNyC0ITw.woff2`,
-).toString('base64');
-const ralewayCyrillicExt2 = readFileSync(
-  `${__dirname}/../_fonts/raleway/v22/1Ptug8zYS_SKggPNyCAIT5lu.woff2`,
-).toString('base64');
-const ralewayCyrillic2 = readFileSync(
-  `${__dirname}/../_fonts/raleway/v22/1Ptug8zYS_SKggPNyCkIT5lu.woff2`,
-).toString('base64');
-const ralewayVietnamese2 = readFileSync(
-  `${__dirname}/../_fonts/raleway/v22/1Ptug8zYS_SKggPNyCIIT5lu.woff2`,
-).toString('base64');
-const ralewayLatinExt2 = readFileSync(
-  `${__dirname}/../_fonts/raleway/v22/1Ptug8zYS_SKggPNyCMIT5lu.woff2`,
-).toString('base64');
-const ralewayLatin2 = readFileSync(
-  `${__dirname}/../_fonts/raleway/v22/1Ptug8zYS_SKggPNyC0ITw.woff2`,
-).toString('base64');
+
+const padding: Number = 40;
+const imageDimension: Number = 65;
 
 function getCss(fontSize: string) {
   return `
@@ -84,94 +66,31 @@ function getCss(fontSize: string) {
       border-spacing: 0;
     }
 
-    /* cyrillic-ext */
-    @font-face {
-      font-family: 'Raleway';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url(data:font/woff2;charset=utf-8;base64,${ralewayCyrillicExt1}) format('woff2');
-      unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-    }
-    /* cyrillic */
-    @font-face {
-      font-family: 'Raleway';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url(data:font/woff2;charset=utf-8;base64,${ralewayCyrillic1}) format('woff2');
-      unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-    }
     /* vietnamese */
     @font-face {
-      font-family: 'Raleway';
+      font-family: 'Barlow';
       font-style: normal;
-      font-weight: 400;
+      font-weight: 500;
       font-display: swap;
-      src: url(data:font/woff2;charset=utf-8;base64,${ralewayVietnamese1}) format('woff2');
+      src: url(data:font/woff2;charset=utf-8;base64,${barlowVietnamese}) format('woff2');
       unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
     }
     /* latin-ext */
     @font-face {
-      font-family: 'Raleway';
+      font-family: 'Barlow';
       font-style: normal;
-      font-weight: 400;
+      font-weight: 500;
       font-display: swap;
-      src: url(data:font/woff2;charset=utf-8;base64,${ralewayLatinExt1}) format('woff2');
+      src: url(data:font/woff2;charset=utf-8;base64,${barlowLatinExt}) format('woff2');
       unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
     }
     /* latin */
     @font-face {
-      font-family: 'Raleway';
+      font-family: 'Barlow';
       font-style: normal;
-      font-weight: 400;
+      font-weight: 500;
       font-display: swap;
-      src: url(data:font/woff2;charset=utf-8;base64,${ralewayLatin1}) format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-    /* cyrillic-ext */
-    @font-face {
-      font-family: 'Raleway';
-      font-style: normal;
-      font-weight: 700;
-      font-display: swap;
-      src: url(data:font/woff2;charset=utf-8;base64,${ralewayCyrillicExt2}) format('woff2');
-      unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-    }
-    /* cyrillic */
-    @font-face {
-      font-family: 'Raleway';
-      font-style: normal;
-      font-weight: 700;
-      font-display: swap;
-      src: url(data:font/woff2;charset=utf-8;base64,${ralewayCyrillic2}) format('woff2');
-      unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-    }
-    /* vietnamese */
-    @font-face {
-      font-family: 'Raleway';
-      font-style: normal;
-      font-weight: 700;
-      font-display: swap;
-      src: url(data:font/woff2;charset=utf-8;base64,${ralewayVietnamese2}) format('woff2');
-      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+1EA0-1EF9, U+20AB;
-    }
-    /* latin-ext */
-    @font-face {
-      font-family: 'Raleway';
-      font-style: normal;
-      font-weight: 700;
-      font-display: swap;
-      src: url(data:font/woff2;charset=utf-8;base64,${ralewayLatinExt2}) format('woff2');
-      unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-    }
-    /* latin */
-    @font-face {
-      font-family: 'Raleway';
-      font-style: normal;
-      font-weight: 700;
-      font-display: swap;
-      src: url(data:font/woff2;charset=utf-8;base64,${ralewayLatin2}) format('woff2');
+      src: url(data:font/woff2;charset=utf-8;base64,${barlowLatin}) format('woff2');
       unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
 
@@ -183,19 +102,19 @@ function getCss(fontSize: string) {
         background-position: center;
         height: 100vh;
         padding: 10px;
-        font-family: 'Raleway', sans-serif;
+        font-family: 'Barlow', sans-serif;
     }
 
     main {
-      padding: 20px;
+      padding: ${padding}px;
     }
 
     img {
       position: fixed;
-      right: 20px;
-      bottom: 20px;
-      wdth: 100px;
-      height: 100px;
+      right: ${padding}px;
+      bottom: ${padding}px;
+      wdth: ${imageDimension}px;
+      height: ${imageDimension}px;
     }
 
     code {
@@ -220,6 +139,7 @@ function getCss(fontSize: string) {
         font-size: ${sanitizeHtml(fontSize)};
         font-style: normal;
         color: black;
+        margin-top: 20px;
     }`;
 }
 
@@ -227,8 +147,8 @@ function getImage(src: string) {
   return `<img
         alt="Generated Image"
         src="${sanitizeHtml(src)}"
-        width="100px"
-        height="100px"
+        width="${imageDimension}"
+        height="${imageDimension}"
     />`;
 }
 
