@@ -26,9 +26,3 @@ It looks like the following:
 ## Note
 
 This service is intended for my personal use. If you want to build your own, you can fork this repository.
-
-## Authors
-
--   Steven ([@styfle](https://twitter.com/styfle)) - [Vercel](https://vercel.com)
--   Evil Rabbit ([@evilrabbit](https://twitter.com/evilrabbit_)) - [Vercel](https://vercel.com)
--   Ahmad Husen ([@hapakaien](https://twitter.com/hapakaien)) - [Datakrama](https://datakrama.com)
