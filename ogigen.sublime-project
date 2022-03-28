@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"LSP": {
+			"LSP-css": {
+				"settings": {
+					"css.validate": false
+				}
+			}
+		}
+	}
+}

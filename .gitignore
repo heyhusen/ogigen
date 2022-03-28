@@ -1,6 +1,10 @@
-.now
-.vercel
+.DS_Store
 node_modules
-api/dist
-public/dist
-
+/build
+/.svelte-kit
+/.vercel
+/package
+.env
+.env.*
+!.env.example
+*.sublime-workspace

@@ -1,28 +1,40 @@
-<a href="https://vercel.com/new/project?template=hapakaien/og-image"><img width="128" src="https://vercel.com/button" align="right"></a>
+# create-svelte
 
-# [Open Graph Image as a Service](https://og-image.husen.id)
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-Serverless service that generates dynamic Open Graph images that you can embed in your `<meta>` tags.
+## Creating a project
 
-For each keystroke, headless chromium is used to render an HTML page and take a screenshot of the result which gets cached.
+If you're seeing this, you've probably already done this step. Congrats!
 
-## What is an Open Graph Image?
+```bash
+# create a new project in the current directory
+npm init svelte@next
 
-Have you ever posted a hyperlink to Twitter, Facebook, or Slack and seen an image popup?
-How did your social network know how to "unfurl" the URL and get an image?
-The answer is in your `<head>`.
-
-The [Open Graph protocol](http://ogp.me) says you can put a `<meta>` tag in the `<head>` of a webpage to define this image.
-
-It looks like the following:
-
-```html
-<head>
-    <title>Title</title>
-    <meta property="og:image" content="http://example.com/logo.jpg" />
-</head>
+# create a new project in my-app
+npm init svelte@next my-app
 ```
 
-## Note
+> Note: the `@next` is temporary
 
-This service is intended for my personal use. If you want to build your own, you can fork this repository.
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
