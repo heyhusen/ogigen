@@ -8,6 +8,7 @@ specifiers:
   '@tailwindcss/typography': ^0.5.0
   '@typescript-eslint/eslint-plugin': ^5.10.1
   '@typescript-eslint/parser': ^5.10.1
+  '@vercel/node': ^1.14.0
   autoprefixer: ^10.4.2
   chrome-aws-lambda: 10.1.0
   cssnano: ^5.1.5
@@ -41,6 +42,7 @@ devDependencies:
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.23
   '@typescript-eslint/eslint-plugin': 5.16.0_5ebe0af2fc61364bec1c7aa70248ccae
   '@typescript-eslint/parser': 5.16.0_eslint@7.32.0+typescript@4.6.2
+  '@vercel/node': 1.14.0
   autoprefixer: 10.4.4_postcss@8.4.12
   cssnano: 5.1.5_postcss@8.4.12
   eslint: 7.32.0

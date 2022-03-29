@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Clipboard from 'svelte-clipboard';
-	import type { ParsedRquest } from '../routes/api/_types';
+	import type { ParsedRquest } from '../../api/_types';
 
 	export let layout: ParsedRquest['layout'];
 	export let fontSize: string;

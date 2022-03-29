@@ -1,7 +1,7 @@
 import sanitizeHtml from './_sanitizer';
 import type { ParsedRquest } from './_types';
 
-function getCss(fontSize: string) {
+function getCss(fontSize: ParsedRquest['fontSize']) {
 	return `
 		@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=Outfit&display=swap');
 		@import url("https://unpkg.com/tailwindcss@3.0.23/src/css/preflight.css");

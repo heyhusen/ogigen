@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { ParsedRquest } from './api/_types';
+	import type { ParsedRquest } from '../../api/_types';
 	import Input from '../components/Input.svelte';
 	import Image from '../components/Image.svelte';
 	import Select from '../components/Select.svelte';
