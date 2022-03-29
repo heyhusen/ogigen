@@ -1,14 +1,16 @@
 <script lang="ts">
+	import type { RequestEvent } from '@sveltejs/kit/types/private';
 	import Clipboard from 'svelte-clipboard';
 	import type { ParsedRquest } from '../../api/_types';
 
+	export let location: RequestEvent['url'];
 	export let layout: ParsedRquest['layout'];
-	export let fontSize: string;
-	export let text: string;
+	export let fontSize: ParsedRquest['fontSize'];
+	export let text: ParsedRquest['text'];
 
-	$: url = `/api?layout=${layout}&fontSize=${fontSize}&text=${encodeURIComponent(
-		text
-	)}`;
+	$: url = `${location.protocol}//${
+		location.host
+	}/api?layout=${layout}&fontSize=${fontSize}&text=${encodeURIComponent(String(text))}`;
 </script>
 
 <Clipboard text="{url}" let:copy>

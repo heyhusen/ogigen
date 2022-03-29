@@ -1,7 +1,18 @@
+<script context="module" lang="ts">
+	import type { Load } from '@sveltejs/kit';
+
+	export const load: Load = ({ url }) => {
+		return {
+			props: { location: url },
+		};
+	};
+</script>
+
 <script lang="ts">
+	import type { RequestEvent } from '@sveltejs/kit/types/private';
 	import type { ParsedRquest } from '../../api/_types';
-	import Input from '../components/Input.svelte';
 	import Image from '../components/Image.svelte';
+	import Input from '../components/Input.svelte';
 	import Select from '../components/Select.svelte';
 
 	const layoutOptions = ['Home', 'Page', 'Blog'];
@@ -26,7 +37,7 @@
 	const initial: ParsedRquest = {
 		layout: 'home',
 		fontSize: '5.5rem',
-		text: '',
+		text: 'Ogigen - Open Graph Image Generator',
 	};
 
 	function changeLayout(event: Event) {
@@ -40,6 +51,8 @@
 	function changeText(event: Event) {
 		initial.text = (<HTMLInputElement>event.target).value;
 	}
+
+	export let location: RequestEvent['url'];
 </script>
 
 <svelte:head>
@@ -56,20 +69,20 @@
 		/>
 
 		{#if initial.layout == 'page'}
-		<Select
-			label="Font Size"
-			options="{fontSizeOptions}"
-			value="{initial.fontSize}"
-			on:change="{changeFontSize}"
-		/>
+			<Select
+				label="Font Size"
+				options="{fontSizeOptions}"
+				value="{initial.fontSize}"
+				on:change="{changeFontSize}"
+			/>
 		{/if}
 
-		{#if initial.layout != 'home' }
-		<Input label="Text" value="{initial.text}" on:input="{changeText}" />
+		{#if initial.layout != 'home'}
+			<Input label="Text" value="{initial.text}" on:input="{changeText}" />
 		{/if}
 	</div>
 
-	<Image {...initial} />
+	<Image location="{location}" {...initial} />
 </main>
 
 <style lang="postcss">
