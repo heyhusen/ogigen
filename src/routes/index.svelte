@@ -56,7 +56,7 @@
 </script>
 
 <svelte:head>
-	<title>Ogigen</title>
+	<title>Ogigen - Open Graph Image Generator</title>
 </svelte:head>
 
 <main>
