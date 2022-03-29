@@ -45,9 +45,6 @@
 		"vercel": "^24.0.1"
 	},
 	"type": "module",
-	"volta": {
-		"node": "16.14.2"
-	},
 	"dependencies": {
 		"chrome-aws-lambda": "10.1.0",
 		"puppeteer-core": "13.5.1"
