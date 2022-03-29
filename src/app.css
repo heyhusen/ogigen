@@ -7,6 +7,10 @@
 	body {
 		@apply bg-white text-gray-600 text-base font-sans antialiased;
 		@apply tracking-normal flex flex-col min-h-screen;
+
+		@media (prefers-color-scheme: dark) {
+			@apply bg-gray-900 text-gray-300;
+		}
 	}
 
 	header, footer {
@@ -62,6 +66,10 @@
 			@media (min-width: 1024px) {
 				@apply text-5xl;
 			}
+
+			@media (prefers-color-scheme: dark) {
+				@apply text-white;
+			}
 		}
 
 		p {
@@ -111,6 +119,10 @@
 
 			@media (min-width: 1024px) {
 				@apply prose-xl;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				@apply prose-invert;
 			}
 		}
 	}

@@ -17,6 +17,10 @@
 	span {
 		@apply text-gray-700;
 
+		@media (prefers-color-scheme: dark) {
+			@apply text-gray-300;
+		}
+
 		@media (min-width: 768px) {
 			@apply text-lg;
 		}
@@ -27,6 +31,10 @@
 
 		@media (min-width: 768px) {
 			@apply mt-2;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			@apply bg-gray-800 border-gray-700;
 		}
 	}
 </style>
