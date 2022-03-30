@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<link rel="icon" href="%svelte.assets%/favicon.ico" sizes="any">
+		<link rel="icon" href="%svelte.assets%/favicon.svg" type="image/svg+xml">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&display=swap" rel="stylesheet">
+
+		%svelte.head%
+	</head>
+
+	<body>
+		<header>
+			<h1>Ogigen</h1>
+
+			<p>Open Graph Image Generator</p>
+		</header>
+
+		<div class="app">%svelte.body%</div>
+
+		<footer>
+			<section>
+				<h2>What is this?</h2>
+
+				<p>
+					This is a service that generates dynamic <a href="https://ogp.me/" target="_blank" rel="noopener noreferrer">Open Graph</a> images that you can embed in your meta tags. For each keystroke, headless Chromium is used to render an HTML page and take a screenshot of the result which gets cached.
+				</p>
+			</section>
+
+			<section>
+				<h2>Make it your own</h2>
+
+				<p>Find out how this works and deploy your own image generator by visiting <a href="https://github.com/hapakaien/ogigen" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+			</section>
+		</footer>
+	</body>
+</html>

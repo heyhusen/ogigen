@@ -1,0 +1,155 @@
+/* Write your global styles here, in PostCSS syntax */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply bg-white text-gray-600 text-base font-sans antialiased;
+		@apply tracking-normal flex flex-col min-h-screen;
+
+		@media (prefers-color-scheme: dark) {
+			@apply bg-gray-900 text-gray-300;
+		}
+	}
+
+	header, footer {
+		@apply w-full max-w-6xl mx-auto px-4 py-6;
+
+		@media (min-width: 320px) {
+			@apply px-6 py-8;
+		}
+
+		@media (min-width: 640px) {
+			@apply px-8 py-10;
+		}
+
+		@media (min-width: 768px) {
+			@apply px-10 py-12;
+		}
+
+		@media (min-width: 1024px) {
+			@apply px-12 py-14;
+		}
+
+		@media (min-width: 1280px) {
+			@apply px-0 py-16;
+		}
+	}
+
+	header {
+		@apply text-center space-y-2;
+
+		@media (min-width: 640px) {
+			@apply space-y-4;
+		}
+
+		@media (min-width: 768px) {
+			@apply space-y-6;
+		}
+
+		@media (min-width: 1024px) {
+			@apply space-y-8;
+		}
+
+		h1 {
+			@apply font-bold text-2xl;
+
+			@media (min-width: 640px) {
+				@apply text-3xl;
+			}
+
+			@media (min-width: 768px) {
+				@apply text-4xl;
+			}
+
+			@media (min-width: 1024px) {
+				@apply text-5xl;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				@apply text-white;
+			}
+		}
+
+		p {
+			@apply text-lg;
+
+			@media (min-width: 640px) {
+				@apply text-xl;
+			}
+
+			@media (min-width: 768px) {
+				@apply text-2xl;
+			}
+
+			@media (min-width: 1024px) {
+				@apply text-3xl;
+			}
+		}
+	}
+
+	footer {
+		@apply mt-auto flex flex-col gap-8;
+
+		@media (min-width: 768px) {
+			@apply flex-row gap-10;
+		}
+
+		@media (min-width: 1024px) {
+			@apply gap-12;
+		}
+
+		@media (min-width: 1280px) {
+			@apply gap-14;
+		}
+
+		section {
+			@apply prose prose-blue max-w-none;
+
+			a {
+				&:hover {
+					@apply no-underline;
+				}
+			}
+
+			@media (min-width: 768px) {
+				@apply flex-1 prose-lg;
+			}
+
+			@media (min-width: 1024px) {
+				@apply prose-xl;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				@apply prose-invert;
+			}
+		}
+	}
+}
+
+@layer components {
+	.app {
+		@apply w-full max-w-6xl mx-auto px-4 py-6;
+
+		@media (min-width: 320px) {
+			@apply px-6 py-8;
+		}
+
+		@media (min-width: 640px) {
+			@apply px-8 py-10;
+		}
+
+		@media (min-width: 768px) {
+			@apply px-10 py-12;
+		}
+
+		@media (min-width: 1024px) {
+			@apply px-12 py-14;
+		}
+
+		@media (min-width: 1280px) {
+			@apply px-0 py-16;
+		}
+	}
+}
